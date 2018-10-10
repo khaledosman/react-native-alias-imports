@@ -11,7 +11,7 @@ async function initCli () {
   const version = await getCLIVersion()
   program
     .version(version, '-v, --version')
-    .option('-p, --path', 'path to root directory to start scanning for imports')
+    .option('-p, --path <filePath>', 'path to root directory to start scanning for imports')
     .description('Analyze directory and print aliases for each directory that can be used as imports for react-native')
     .parse(process.argv)
 
