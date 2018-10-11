@@ -32,4 +32,8 @@ async function initCli () {
       })
       spinner.end()
     })
+    .catch(err => {
+      console.error(err)
+      spinner.end()
+    })
 }
