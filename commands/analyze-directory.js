@@ -5,17 +5,28 @@ const path = require('path')
 const { checkPackageJsonExists } = require('../helpers/check-package-json-exists')
 const { getNameFromPackageJson } = require('../helpers/get-name-from-package-json')
 const { filterDirectoriesFromSubfiles } = require('../helpers/filter-directories-from-subfiles')
+
 function analyzeDirectory (dirPath, results) {
   return checkPackageJsonExists(dirPath)
     .then(async hasPackageJson => {
+      let result = {}
       if (hasPackageJson) {
         // console.log(dirPath, 'hasPackageJson')
         const name = await getNameFromPackageJson(dirPath)
-        results.push({ name, dirPath })
+        result = { name, dirPath }
       }
-      return readDir(dirPath)
+      let subFiles = await readDir(dirPath)
+      const filtered = await filterDirectoriesFromSubfiles(dirPath, subFiles)
+      subFiles = subFiles.map(file => ({
+        file,
+        isDirectory: filtered.includes(file)
+      }))
+      if (!isEmpty(result)) {
+        result = { ...result, subFiles }
+        results.push(result)
+      }
+      return filtered
     })
-    .then(subFiles => filterDirectoriesFromSubfiles(dirPath, subFiles))
     .then(subDirectories => {
       // console.log('dirPath', dirPath, 'subDirectories', subDirectories)
       return Promise.all(subDirectories.map(subDirectory => analyzeDirectory(path.join(dirPath, subDirectory), results)))
@@ -28,6 +39,10 @@ function findImportableDirectories (dirPath) {
     .then(() => {
       return results
     })
+}
+
+function isEmpty (obj) {
+  return Object.keys(obj).length === 0 && obj.constructor === Object
 }
 
 module.exports.findImportableDirectories = findImportableDirectories
