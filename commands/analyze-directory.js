@@ -4,26 +4,26 @@ const readDir = promisify(fs.readdir)
 const path = require('path')
 const { checkPackageJsonExists } = require('../helpers/check-package-json-exists')
 const { getNameFromPackageJson } = require('../helpers/get-name-from-package-json')
-const { filterDirectoriesFromSubfiles } = require('../helpers/filter-directories-from-subfiles')
+const { filterDirectoriesFromSubFiles } = require('../helpers/filter-directories-from-subfiles')
 
 function analyzeDirectory (dirPath, results) {
   return checkPackageJsonExists(dirPath)
     .then(async hasPackageJson => {
-      let result = {}
+      let transform = {}
       if (hasPackageJson) {
         // console.log(dirPath, 'hasPackageJson')
         const name = await getNameFromPackageJson(dirPath)
-        result = { name, dirPath }
+        transform = { name, dirPath }
       }
       let subFiles = await readDir(dirPath)
-      const filtered = await filterDirectoriesFromSubfiles(dirPath, subFiles)
+      const filtered = await filterDirectoriesFromSubFiles(dirPath, subFiles)
       subFiles = subFiles.map(file => ({
         file,
         isDirectory: filtered.includes(file)
       }))
-      if (!isEmpty(result)) {
-        result = { ...result, subFiles }
-        results.push(result)
+      if (!isEmpty(transform)) {
+        transform = { ...transform, subFiles }
+        results.push(transform)
       }
       return filtered
     })

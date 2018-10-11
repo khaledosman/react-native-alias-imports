@@ -3,15 +3,15 @@ const { promisify } = require('util')
 const lstat = promisify(fs.lstat)
 const path = require('path')
 
-function filterDirectoriesFromSubfiles (dirPath, subFiles) {
+function filterDirectoriesFromSubFiles (dirPath, subFiles) {
   return Promise.all(subFiles.map(async subFile => {
     const stats = await lstat(path.join(dirPath, subFile))
     return {
       isDirectory: stats.isDirectory(),
-      subFile
+      file: subFile
     }
   }))
-    .then(items => items.filter(item => item.isDirectory && !item.subFile.endsWith('node_modules') && !item.subFile.endsWith('.git')))
-    .then(items => items.map(i => i.subFile))
+    .then(items => items.filter(item => item.isDirectory && !item.file.endsWith('node_modules') && !item.file.endsWith('.git')))
+    .then(items => items.map(f => f.file))
 }
-module.exports.filterDirectoriesFromSubfiles = filterDirectoriesFromSubfiles
+module.exports.filterDirectoriesFromSubFiles = filterDirectoriesFromSubFiles
