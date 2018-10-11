@@ -4,7 +4,8 @@ const program = require('commander')
 const figlet = require('figlet')
 const { getCLIVersion } = require('./helpers/get-cli-version')
 const { findImportableDirectories } = require('./commands/analyze-directory')
-
+const { Spinner } = require('./helpers/spinner')
+const chalk = require('chalk')
 initCli()
 
 async function initCli () {
@@ -21,8 +22,14 @@ async function initCli () {
     verticalLayout: 'full'
   }))
 
+  const spinner = new Spinner('Analyzing directories')
+  spinner.start()
   findImportableDirectories(program.path || process.cwd())
     .then((results) => {
-      console.log('results', results)
+      // console.log('results', results)
+      results.map(result => {
+        console.log(chalk.cyan(result.name) + ': ' + chalk.green(result.dirPath))
+      })
+      spinner.end()
     })
 }

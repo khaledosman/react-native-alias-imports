@@ -5,7 +5,6 @@ const path = require('path')
 const { checkPackageJsonExists } = require('../helpers/check-package-json-exists')
 const { getNameFromPackageJson } = require('../helpers/get-name-from-package-json')
 const { filterDirectoriesFromSubfiles } = require('../helpers/filter-directories-from-subfiles')
-
 function analyzeDirectory (dirPath, results) {
   return checkPackageJsonExists(dirPath)
     .then(async hasPackageJson => {
@@ -26,7 +25,9 @@ function analyzeDirectory (dirPath, results) {
 function findImportableDirectories (dirPath) {
   const results = []
   return analyzeDirectory(dirPath, results)
-    .then(() => results)
+    .then(() => {
+      return results
+    })
 }
 
 module.exports.findImportableDirectories = findImportableDirectories

@@ -3,6 +3,7 @@ const CLUI = require('clui')
 class Spinner {
   constructor (message = 'Exiting in 10 seconds...  ') {
     this.countdown = new CLUI.Spinner(message/*, ['⣾', '⣽', '⣻', '⢿', '⡿', '⣟', '⣯', '⣷'] */)
+    process.stdout.write('\n')
   }
 
   start () {

@@ -5,8 +5,7 @@ const path = require('path')
 
 async function getNameFromPackageJson (dirPath) {
   const fileContent = await readFile(path.join(dirPath, 'package.json'), 'utf8')
-  const name = JSON.parse(fileContent).name
-  return name
+  return JSON.parse(fileContent).name
 }
 
 module.exports.getNameFromPackageJson = getNameFromPackageJson
