@@ -21,12 +21,13 @@ async function initCli () {
     .version(version, '-v, --version')
     .option('-r, --rootPath <filePath>', 'optional path to root directory to start scanning for imports')
     .option('-p, --printSubDirectories', 'optional flag to print subfiles for each subdirectory')
-    .option('-a, --alias <alias>', 'optional flag to print subfiles for the alias subdirectory')
+    .option('-a, --aliasName <name>', 'optional flag to print subfiles for the alias subdirectory')
     .description('Analyze directory and print aliases for each directory that can be used as imports for react-native')
+    .parse(process.argv)
 
   const rootPath = program.rootPath || process.cwd()
   const printSubDirectories = program.printSubDirectories
-  const isPrintingAlias = program.alias
+  const isPrintingAlias = program.aliasName
   const spinner = new Spinner('Analyzing directories')
   spinner.start()
 
@@ -35,7 +36,8 @@ async function initCli () {
       // storage.results = results
       // console.log('results', results)
       if (isPrintingAlias) {
-        printResults(results.filter(r => r.name === program.alias), printSubDirectories)
+        // console.log('alias')
+        printResults(results.filter(r => r.name === program.aliasName), printSubDirectories)
       } else {
         printResults(results, printSubDirectories)
       }
@@ -45,8 +47,6 @@ async function initCli () {
       console.error(err)
       spinner.end()
     })
-
-  program.parse(process.argv)
 }
 
 function printResults (results, shouldPrintSubDirectories) {
