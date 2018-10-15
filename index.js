@@ -26,7 +26,7 @@ async function initCli () {
     .parse(process.argv)
 
   const rootPath = program.rootPath || process.cwd()
-  const printSubDirectories = program.printSubDirectories
+  const printSubDirectories = program.aliasName || program.printSubDirectories
   const isPrintingAlias = program.aliasName
   const spinner = new Spinner('Analyzing directories')
   spinner.start()
@@ -59,7 +59,7 @@ function printResults (results, shouldPrintSubDirectories) {
         .map(async file => {
           file.isDirectory ? console.log(chalk.white.bold(file.file)) : console.log(chalk.gray.italic(file.file))
         })
+      process.stdout.write('\n')
     }
-    process.stdout.write('\n')
   })
 }
