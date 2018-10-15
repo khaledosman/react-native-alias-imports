@@ -8,7 +8,7 @@ const { Spinner } = require('./helpers/spinner')
 const chalk = require('chalk')
 
 initCli()
-
+// const storage = {}
 async function initCli () {
   console.log(figlet.textSync('Aliased Imports', {
     // font: 'Dancing Font',
@@ -19,26 +19,34 @@ async function initCli () {
   const version = await getCLIVersion()
   program
     .version(version, '-v, --version')
-    .option('-r, --rootPath <filePath>', 'path to root directory to start scanning for imports')
-    .option('-p, --printSubDirectories', 'prints subfiles for each subdirectory')
+    .option('-r, --rootPath <filePath>', 'optional path to root directory to start scanning for imports')
+    .option('-p, --printSubDirectories', 'optional flag to print subfiles for each subdirectory')
+    .option('-a, --alias <alias>', 'optional flag to print subfiles for the alias subdirectory')
     .description('Analyze directory and print aliases for each directory that can be used as imports for react-native')
-    .parse(process.argv)
 
   const rootPath = program.rootPath || process.cwd()
   const printSubDirectories = program.printSubDirectories
+  const isPrintingAlias = program.alias
   const spinner = new Spinner('Analyzing directories')
   spinner.start()
 
   findImportableDirectories(rootPath)
     .then((results) => {
+      // storage.results = results
       // console.log('results', results)
-      printResults(results, printSubDirectories)
+      if (isPrintingAlias) {
+        printResults(results.filter(r => r.name === program.alias), printSubDirectories)
+      } else {
+        printResults(results, printSubDirectories)
+      }
       spinner.end()
     })
     .catch(err => {
       console.error(err)
       spinner.end()
     })
+
+  program.parse(process.argv)
 }
 
 function printResults (results, shouldPrintSubDirectories) {
