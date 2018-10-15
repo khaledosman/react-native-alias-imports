@@ -33,6 +33,7 @@ async function initCli () {
 
   findImportableDirectories(rootPath)
     .then((results) => {
+      spinner.end()
       // storage.results = results
       // console.log('results', results)
       if (isPrintingAlias) {
@@ -41,7 +42,6 @@ async function initCli () {
       } else {
         printResults(results, printSubDirectories)
       }
-      spinner.end()
     })
     .catch(err => {
       console.error(err)
