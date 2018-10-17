@@ -13,4 +13,10 @@ pipelines:
         script: # Modify the commands below to build your repository.
           - npm install
           - npm test
+          - npm set registry http://npm.colorfy.me:4873/
+          - npm adduser <<!
+            $NPM_USER
+            $NPM_PASS
+            $NPM_MAIL
+            !
           - npx semantic-release --no-ci
