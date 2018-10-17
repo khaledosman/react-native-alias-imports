@@ -1,3 +1,10 @@
+## [1.3.1](https://bitbucket.org/colorfy/react-native-alias-imports/compare/v1.3.0...v1.3.1) (2018-10-17)
+
+
+### Bug Fixes
+
+* remove the --no-ci and --debug flags ([ccb61b0](https://bitbucket.org/colorfy/react-native-alias-imports/commits/ccb61b0))
+
 # [1.3.0](https://bitbucket.org/colorfy/react-native-alias-imports/compare/v1.2.3...v1.3.0) (2018-10-16)
 
 
