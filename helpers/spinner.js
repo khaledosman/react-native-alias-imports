@@ -20,10 +20,3 @@ class Spinner {
   }
 }
 module.exports.Spinner = Spinner
-
-// const spinner = new Spinner('doing stuff')
-// spinner.start()
-// setTimeout(() => {
-//   spinner.update('doing more stuff')
-// }, 1000)
-// setTimeout(() => spinner.end(), 2000)
