@@ -3,6 +3,7 @@ const { promisify } = require('util')
 const lstat = promisify(fs.lstat)
 const path = require('path')
 
+const blacklistedDirectories = ['node_modules', '.git']
 function filterDirectoriesFromSubFiles (dirPath, subFiles) {
   return Promise.all(subFiles.map(async subFile => {
     const stats = await lstat(path.join(dirPath, subFile))
@@ -11,7 +12,7 @@ function filterDirectoriesFromSubFiles (dirPath, subFiles) {
       file: subFile
     }
   }))
-    .then(items => items.filter(item => item.isDirectory && !item.file.endsWith('node_modules') && !item.file.endsWith('.git')))
+    .then(items => items.filter(item => item.isDirectory && !blacklistedDirectories.includes(item.file)))
     .then(items => items.map(f => f.file))
 }
 module.exports.filterDirectoriesFromSubFiles = filterDirectoriesFromSubFiles
