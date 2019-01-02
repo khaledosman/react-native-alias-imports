@@ -1,3 +1,10 @@
+## [1.4.1](https://bitbucket.org/colorfy/react-native-alias-imports/compare/v1.4.0...v1.4.1) (2019-01-02)
+
+
+### Bug Fixes
+
+* empty commit to force release ([4197cc0](https://bitbucket.org/colorfy/react-native-alias-imports/commits/4197cc0))
+
 # [1.4.0](https://bitbucket.org/colorfy/react-native-alias-imports/compare/v1.3.1...v1.4.0) (2019-01-02)
 
 
