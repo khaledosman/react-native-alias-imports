@@ -1,3 +1,11 @@
+## [1.5.1](https://bitbucket.org/colorfy/react-native-alias-imports/compare/v1.5.0...v1.5.1) (2019-06-13)
+
+
+### Bug Fixes
+
+* add back setting the registry_url & token ([c12757c](https://bitbucket.org/colorfy/react-native-alias-imports/commits/c12757c))
+* remove unnecessary command in pipelines ([b87dc7b](https://bitbucket.org/colorfy/react-native-alias-imports/commits/b87dc7b))
+
 # [1.5.0](https://bitbucket.org/colorfy/react-native-alias-imports/compare/v1.4.1...v1.5.0) (2019-03-06)
 
 
