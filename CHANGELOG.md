@@ -1,3 +1,10 @@
+## [1.5.3](https://bitbucket.org/colorfy/react-native-alias-imports/compare/v1.5.2...v1.5.3) (2019-06-13)
+
+
+### Bug Fixes
+
+* fixing pipeliens settings ([702a904](https://bitbucket.org/colorfy/react-native-alias-imports/commits/702a904))
+
 ## [1.5.2](https://bitbucket.org/colorfy/react-native-alias-imports/compare/v1.5.1...v1.5.2) (2019-06-13)
 
 
