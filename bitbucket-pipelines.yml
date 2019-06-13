@@ -17,7 +17,7 @@ pipelines:
           #                   defaults to registry.npmjs.org.
           # NPM_TOKEN: secret token for installing private modules. This
           #            this token can be found in your .npmrc, after logging in.
-          - printf "//`node -p \"require('url').parse(process.env.NPM_REGISTRY_URL || 'https://registry.npmjs.org').host\"`/:_authToken=${NPM_TOKEN}\nregistry=${NPM_REGISTRY_URL:-https://registry.npmjs.org}\n" >> ~/.npmrc
+          #- printf "//`node -p \"require('url').parse(process.env.NPM_REGISTRY_URL || 'https://registry.npmjs.org').host\"`/:_authToken=${NPM_TOKEN}\nregistry=${NPM_REGISTRY_URL:-https://registry.npmjs.org}\n" >> ~/.npmrc
           - npm install
           - npm test
           - npx semantic-release
