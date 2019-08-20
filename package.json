@@ -16,18 +16,18 @@
     "chalk": "^2.4.2",
     "clui": "^0.3.6",
     "commander": "^3.0.0",
-    "figlet": "^1.2.1",
-    "inquirer": "^6.2.0",
+    "figlet": "^1.2.3",
+    "inquirer": "^6.5.1",
     "inquirer-fuzzy-path": "^2.1.0",
     "node-progress": "^0.1.0"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^3.0.1",
-    "@semantic-release/commit-analyzer": "^6.1.0",
-    "@semantic-release/git": "^7.0.5",
-    "@semantic-release/npm": "^5.0.5",
-    "@semantic-release/release-notes-generator": "^7.1.1",
-    "semantic-release": "^15.10.2",
+    "@semantic-release/changelog": "^3.0.4",
+    "@semantic-release/commit-analyzer": "^6.3.0",
+    "@semantic-release/git": "^7.0.16",
+    "@semantic-release/npm": "^5.1.13",
+    "@semantic-release/release-notes-generator": "^7.3.0",
+    "semantic-release": "^15.13.21",
     "standard": "^14.0.0"
   },
   "release": {
