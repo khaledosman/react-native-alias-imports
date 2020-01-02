@@ -1,3 +1,10 @@
+## [1.5.4](https://bitbucket.org/colorfy/react-native-alias-imports/compare/v1.5.3...v1.5.4) (2020-01-02)
+
+
+### Bug Fixes
+
+* bump dependencies ([6c1f045](https://bitbucket.org/colorfy/react-native-alias-imports/commits/6c1f0452111eca59745ed5bf5cf4afb137c15ab7))
+
 ## [1.5.3](https://bitbucket.org/colorfy/react-native-alias-imports/compare/v1.5.2...v1.5.3) (2019-06-13)
 
 
