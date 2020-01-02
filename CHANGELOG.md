@@ -1,3 +1,11 @@
+## [1.5.5](https://bitbucket.org/colorfy/react-native-alias-imports/compare/v1.5.4...v1.5.5) (2020-01-02)
+
+
+### Bug Fixes
+
+* **package:** update commander to version 4.0.0 ([e49cd8e](https://bitbucket.org/colorfy/react-native-alias-imports/commits/e49cd8e7095b7ef10532b1787a3517fac0b2f7d8))
+* **package:** update inquirer to version 7.0.0 ([076a9e5](https://bitbucket.org/colorfy/react-native-alias-imports/commits/076a9e5d2ece07b867c99e60b4e7cc0d02a46d5b))
+
 ## [1.5.4](https://bitbucket.org/colorfy/react-native-alias-imports/compare/v1.5.3...v1.5.4) (2020-01-02)
 
 
