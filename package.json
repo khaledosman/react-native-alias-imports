@@ -15,19 +15,19 @@
   "dependencies": {
     "chalk": "^3.0.0",
     "clui": "^0.3.6",
-    "commander": "^4.0.1",
+    "commander": "^4.1.0",
     "figlet": "^1.2.4",
-    "inquirer": "^7.0.1",
+    "inquirer": "^7.0.4",
     "inquirer-fuzzy-path": "^2.2.0",
     "node-progress": "^0.1.0"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^3.0.6",
-    "@semantic-release/commit-analyzer": "^7.0.0",
-    "@semantic-release/git": "^7.0.18",
-    "@semantic-release/npm": "^5.3.5",
-    "@semantic-release/release-notes-generator": "^7.3.5",
-    "semantic-release": "^16.0.0",
+    "@semantic-release/changelog": "^5.0.0",
+    "@semantic-release/commit-analyzer": "^8.0.0",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/npm": "^7.0.0",
+    "@semantic-release/release-notes-generator": "^9.0.0",
+    "semantic-release": "^17.0.1",
     "standard": "^14.3.1"
   },
   "release": {
